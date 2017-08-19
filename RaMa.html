@@ -1,0 +1,117 @@
+<html> 
+ <head>
+  <script type="text/javascript">  
+    function displaynum(n){  
+    calculatorform.txt1.value=calculatorform.txt1.value+n;    
+    }
+    function sqrt(form) {
+form.txt1.value = Math.sqrt(form.txt1.value);
+}
+// function compute(form) {
+//     form.txt1.value = eval(form.txt1.value)
+// }
+function square(form) {
+    form.txt1.value = eval(form.txt1.value) * eval(form.txt1.value)
+}
+function sin(form) {
+    form.txt1.value = Math.sin(form.txt1.value*Math.PI/180);
+}
+function tan(form) {
+    form.txt1.value = Math.tan(form.txt1.value*Math.PI/180);
+    }
+function percent(form){
+	form.txt1.value=form.txt1.value/100;
+}
+function cos(form) {
+    form.txt1.value = Math.cos(form.txt1.value*Math.PI/180);
+}
+function deletchar(input){
+	input.value=input.value.substring(0,input.value.length-1)
+}
+function checkNum(str) {
+    for (var i = 0; i < str.length; i++) {
+        var ch = str.substring(i, i+1)
+        // if (ch < "0" || ch > "9") {
+            if (ch === "/" || ch === "*" || ch === "+" || ch === "-" || ch === ".")
+                 {
+                alert("invalid entry!")
+                return false
+                }
+           // }
+        }
+        return true
+}
+  
+    
+  
+ </script>
+ <link rel="stylesheet" type="text/css">
+ <style type="text/css">
+ p input{
+        width: 65px;
+        height: 30px;
+        }
+ .dplay input{
+    position: relative;
+    left: 20px;
+    top: 50px;
+    height: 50px;
+    color: black;
+    font-size: 30px;
+ }
+ /*.calc-row div.screen {
+  font-family: Droid Sans Mono;
+  display: table;
+  width: 85%;
+  background-color: #aaa;
+  text-align:
+}*/
+body{
+    background-image: url('https://i.ytimg.com/vi/CxOpLWjiBZY/maxresdefault.jpg');
+}
+  </style>
+ <script src='https://code.jquery.com/jquery-2.2.4.js'></script>
+</head>
+<body >
+<center>
+ <form name=calculatorform>
+ <div class="dplay"><input type=text name=txt1 style="text-align:right" readonly>
+ <p>
+  <input type=button name=btnsin value=sin style="background-color:lightblue" onclick="if (checkNum(this.form.txt1.value)) { sin(this.form) }">
+ <input type=button name=btncon value=cos style="background-color:lightblue" onclick="if (checkNum(this.form.txt1.value)) { cos(this.form) }">
+ <input type=button name=submem value=tan style="background-color:lightblue" onclick="if (checkNum(this.form.txt1.value)) { tan(this.form) }">
+<input type="reset" value=C style="background-color:red">
+<input type=button name=btnCE value=CE style="background-color:orange" onclick="deletchar(this.form.txt1)">
+ </p>
+<p> 
+<input type=button name=btn7 value=7  onclick="displaynum(btn7.value)">
+ <input type=button name=btn8 value=8  onclick="displaynum(btn8.value)">
+ <input type=button name=btn9 value=9  onclick="displaynum(btn9.value)">
+ <input type=button name=divbtn value=/ style="background-color:lightblue" onclick="displaynum(divbtn.value)">
+ <input type=button name=power value=x^2 style="background-color:lightblue" onclick="if (checkNum(this.form.txt1.value)) { square(this.form) }">
+</p>
+<p>
+ <input type=button name=btn4 value=4  onclick="displaynum(btn4.value)">
+ <input type=button name=btn5 value=5  onclick="displaynum(btn5.value)">
+ <input type=button name=btn6 value=6  onclick="displaynum(btn6.value)">
+ <input type=button name=multbtn value=* style="background-color:lightblue" onclick="displaynum(multbtn.value)">
+ <input type=button name=btn√ value=sqrt style="background-color:lightblue" onclick="if (checkNum(this.form.txt1.value)) { sqrt(this.form) }">
+</p>
+<p>
+ <input type=button name=btn1 value=1  onclick="displaynum(btn1.value)">
+ <input type=button name=btn2 value=2  onclick="displaynum(btn2.value)">
+ <input type=button name=btn3 value=3  onclick="displaynum(btn3.value)">
+ <input type=button name=subbtn value=- style="background-color:lightblue" onclick="displaynum(subbtn.value)">
+ <input type=button name=percnt value=% style="background-color:lightblue" onclick="if (checkNum(this.form.txt1.value)) { percent(this.form) }">
+</p>
+<p>
+ <input type=button name=btn0 value=0  onclick="displaynum(btn0.value)">
+ <input type=button name=potbtn value=. onclick="displaynum(potbtn.value)">
+ <input type=button name=eqlbtn value== onclick="txt1.value=eval(txt1.value)">
+ <input type=button name=addbtn value=+ style="background-color:lightblue ; width:135px" onclick="displaynum(addbtn.value)">
+</p>
+</div>
+ </form>
+ </center> 
+</body>
+</html> 
